@@ -56,9 +56,13 @@ sudo apt-get install python-pip python-dev
 sudo apt-get install python-opencv
 sudo apt-get install liblapack-dev
 
+#sudo pip install virtualenv
+
+#virtualenv python2
+conda create -n python2 python=2.7 anaconda
 source activate python2
 conda install -c menpo opencv3=3.1.0
-pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
+pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
 pip install keras
 
 # install monitoring programs
