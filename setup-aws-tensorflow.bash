@@ -57,6 +57,8 @@ sudo apt-get install python-opencv
 sudo apt-get install liblapack-dev
 
 #sudo pip install virtualenv
+# reload .bashrc
+exec bash
 
 #virtualenv python2
 conda create -n python2 python=2.7 anaconda
