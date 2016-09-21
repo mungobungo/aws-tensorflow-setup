@@ -7,6 +7,13 @@ set -e
 sudo mkdir -p /mnt/bin
 sudo chown ubuntu:ubuntu /mnt/bin
 
+##############################################
+# preparing big partition
+mkdir nd013
+sudo mkfs.ext3 /dev/xvdb
+sudo echo '/dev/xvdb /home/ubuntu/nd013 	ext4 	defaults,discard 0 0 ' >> /etc/fstab
+sudo mount -a
+
 # install the required packages
 sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get -y install linux-headers-$(uname -r) linux-image-extra-`uname -r`
@@ -61,12 +68,14 @@ sudo apt-get install liblapack-dev -y
 exec bash
 
 #virtualenv python2
+cd nd013
 conda create -n python2 python=2.7 anaconda
 source activate python2
 conda install -c menpo opencv3=3.1.0
 pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.11.0-cp27-none-linux_x86_64.whl
 pip install keras
 
+echo "keras installed"
 # install monitoring programs
 sudo wget https://git.io/gpustat.py -O /usr/local/bin/gpustat
 sudo chmod +x /usr/local/bin/gpustat
