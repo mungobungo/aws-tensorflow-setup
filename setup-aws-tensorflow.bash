@@ -36,15 +36,30 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CUDA_ROOT/lib64
 ' >> ~/.bashrc
 
 # install anaconda
-wget http://repo.continuum.io/archive/Anaconda3-4.0.0-Linux-x86_64.sh
-bash Anaconda3-4.0.0-Linux-x86_64.sh -b -p /mnt/bin/anaconda3
-rm Anaconda3-4.0.0-Linux-x86_64.sh
-echo 'export PATH="/mnt/bin/anaconda3/bin:$PATH"' >> ~/.bashrc
+wget http://repo.continuum.io/archive/Anaconda2-4.1.1-Linux-x86_64.sh
+bash Anaconda2-4.1.1-Linux-x86_64.sh -b -p /mnt/bin/anaconda2
+rm Anaconda2-4.1.1-Linux-x86_64.sh
+echo 'export PATH="/mnt/bin/anaconda2/bin:$PATH"' >> ~/.bashrc
 
-# install tensorflow
-export TF_BINARY_URL='https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0rc0-cp35-cp35m-linux_x86_64.whl'
+# install tensorflowi
 
-/mnt/bin/anaconda3/bin/pip install $TF_BINARY_URL
+# Ubuntu/Linux 64-bit, GPU enabled, Python 2.7
+# Requires CUDA toolkit 7.5 and CuDNN v5. For other versions, see "Install from sources" below.
+export TF_BINARY_URL='https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl'
+
+/mnt/bin/anaconda2/bin/pip install $TF_BINARY_URL
+
+
+# install libs
+sudo apt-get install python-pip python-dev
+
+sudo apt-get install python-opencv
+sudo apt-get install liblapack-dev
+
+source activate python2
+conda install -c menpo opencv3=3.1.0
+pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
+pip install keras
 
 # install monitoring programs
 sudo wget https://git.io/gpustat.py -O /usr/local/bin/gpustat
