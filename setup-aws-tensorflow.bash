@@ -13,6 +13,7 @@ mkdir ~/nd013
 sudo mkfs.ext3 /dev/xvdb
 sudo sh -c "echo '/dev/xvdb /home/ubuntu/nd013 	ext4 	defaults,discard 0 0 ' >> /etc/fstab"
 sudo mount -a
+sudo chown  ubuntu:ubuntu -R nd013
 
 # install the required packages
 sudo apt-get update && sudo apt-get -y upgrade
