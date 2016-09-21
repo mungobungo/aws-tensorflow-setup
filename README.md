@@ -1,4 +1,4 @@
-# Setting up TensorFlow 1.0 with Python 2.7 on AWS GPU-instance
+# Prepares AWS GPU-instance to run comma.ai model for nd013 challenge-1 
 
 ## Description
 
