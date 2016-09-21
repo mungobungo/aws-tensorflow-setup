@@ -51,10 +51,10 @@ export TF_BINARY_URL='https://storage.googleapis.com/tensorflow/linux/gpu/tensor
 
 
 # install libs
-sudo apt-get install python-pip python-dev
+sudo apt-get install python-pip python-dev -y
 
-sudo apt-get install python-opencv
-sudo apt-get install liblapack-dev
+sudo apt-get install python-opencv -y
+sudo apt-get install liblapack-dev -y
 
 #sudo pip install virtualenv
 # reload .bashrc
