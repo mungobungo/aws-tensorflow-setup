@@ -11,7 +11,7 @@ echo "keras installed"
 sudo wget https://git.io/gpustat.py -O /usr/local/bin/gpustat
 sudo chmod +x /usr/local/bin/gpustat
 sudo nvidia-smi daemon
-sudo apt-get -y install htop
+sudo apt-get -y install htop unzip
 
 # reload .bashrc
 exec bash
